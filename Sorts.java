@@ -7,12 +7,12 @@ import java.util.*;
 public class Sorts {
 	
 	/**
-	 * MÈtodo que utiliza recursividad para ordenar arreglos
+	 * M√©todo que utiliza recursividad para ordenar arreglos
 	 * @param list lista desordenada
 	 * @return merge(left, right) funcion que devuelve la lista ordenada
 	 */
 	public ArrayList<Integer> merge_sort(ArrayList<Integer> list) {
-		//Si el arreglo tiene 0 o 1 elementos ya est· ordenado.
+		//Si el arreglo tiene 0 o 1 elementos ya est√° ordenado.
 		if(list.size() <= 1) {
 			return list;
 		}
@@ -40,7 +40,7 @@ public class Sorts {
 	}
 	
 	/**
-	 * MÈtodo para unir dos arreglos a uno mismo ordenandolos
+	 * M√©todo para unir dos arreglos a uno mismo ordenandolos
 	 * @param left
 	 * @param right
 	 * @return arreglo ordenado y fusionado
@@ -55,7 +55,7 @@ public class Sorts {
 			//Condicion si el primer valor de izquierda es menor o igual al de derecha
 			if(left.get(0).compareTo(right.get(0)) != 1) {
 				
-				//Se aÒade este valor al arreglo de result
+				//Se a√±ade este valor al arreglo de result
 				result.add(left.get(0));
 				
 				//Se remueve este valor del arreglo de izquierda para pasar con el siguiente
@@ -65,7 +65,7 @@ public class Sorts {
 			//Si el valor de derecha es mayor al de izquierda
 			else {
 				
-				//Se aÒade este valor al arreglo de result
+				//Se a√±ade este valor al arreglo de result
 				result.add(right.get(0));
 				
 				//Se remueve este valor del arreglo de derecha para pasar con el siguiente
@@ -76,7 +76,7 @@ public class Sorts {
 		//Ciclo que funciona cuando izquierda tenga valores pero derecha no
 		while(left.size() > 0) {
 			
-			//Se aÒade el primer valor al arreglo de result
+			//Se a√±ade el primer valor al arreglo de result
 			result.add(left.get(0));
 			
 			//Se remueve este valor del arreglo de izquierda
@@ -86,7 +86,7 @@ public class Sorts {
 		//Ciclo que funciona mientras derecha tenga valores pero izquierda no
 		while(right.size() > 0) {
 			
-			//Se aÒade el primer valor al arreglo de result
+			//Se a√±ade el primer valor al arreglo de result
 			result.add(right.get(0));
 			
 			//Se remueve este valor del arreglo de derecha
@@ -98,8 +98,9 @@ public class Sorts {
 	/**
 	 * Metodo para ordenar arreglos utilizando algoritmo Gnome
 	 * @param array arreglo desordenado
+	 * @return array el arreglo ordenado
 	 */
-	public void gnome_sort(Integer[] array) {
+	public Integer[] gnome_sort(Integer[] array) {
 		
 		//Ciclo que se mantiene mientras i sea menor que el numero de elementos del arreglo
 		for(int i = 1; i < array.length;) {
@@ -107,7 +108,7 @@ public class Sorts {
 			//Condicion si el valor en indice i-1 es menor o igual al valor en indice i
 			if(array[i-1].compareTo(array[i]) != 1){
 				
-				//Pasa al siguiente valor en la lista ya que esta pareja ya est· ordenada
+				//Pasa al siguiente valor en la lista ya que esta pareja ya est√° ordenada
 				i++;
 			}
 			
@@ -130,14 +131,15 @@ public class Sorts {
 				i--;
 			}
 			
-			//CondiciÛn en caso i llegue a ser 0
+			//Condici√≥n en caso i llegue a ser 0
 			if(i == 0) {
 				
-				//Ya que se evalua el indice i-1, esto darÌa error, entonces nuevamente i = 1
+				//Ya que se evalua el indice i-1, esto dar√≠a error, entonces nuevamente i = 1
 				i = 1;
 			}
 			
 		}
+		return array;
 	}
 	
 }
