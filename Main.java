@@ -23,14 +23,4 @@ public class Main {
         long end = System.currentTimeMillis(); 
         System.out.println((end - start) + "ms"); 
     } 
-  
-    // A dummy function that runs a loop x times 
-    public static void count_function(long x) 
-    { 
-        System.out.println("Loop starts"); 
-        for (long i = 0; i < x; i++) 
-            ; 
-        System.out.println("Loop ends"); 
-    } 
-
 }
