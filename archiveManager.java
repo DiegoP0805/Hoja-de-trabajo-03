@@ -36,7 +36,7 @@ public class archiveManager
         try 
         {
             Random rnd = new Random();
-            int n = rnd.nextInt(2991) + 10;
+            int n = rnd.nextInt(10) + 10;
             String name = "\\nums.txt";
 
             //se establece el path donde se creará el archivo

@@ -3,6 +3,8 @@
  */
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -15,6 +17,7 @@ public class dummy {
     {
         archiveManager am = new archiveManager();
         sorts2 s = new sorts2();
+        Sorts s1 = new Sorts();
         am.generate();
         int[] numeros = am.read();
         System.out.println(numeros.length);
@@ -48,18 +51,34 @@ public class dummy {
                 
                 case 1:
                 System.out.println("\nGnome Sort");
-
-                System.out.println("\n");
-
+                ArrayList<Integer> l3 = new ArrayList(Arrays.asList(arreglos.get(i)));
+                begin = System.nanoTime();
+                ArrayList<Integer> l4 = s1.merge_sort(l3);
+                end = System.nanoTime();
+                time = end - begin;
+                System.out.println("\nTiempo de ejecución en un arreglo sin ordenar: " + time + " nanosegundos\n");
+                begin = System.nanoTime();
+                l4 = s1.merge_sort(l4);
+                end = System.nanoTime();
+                time = end - begin;
+                System.out.println("\nTiempo de ejecución en un arreglo ordenado: " + time + " nanosegundos\n");
                 System.out.println("\n");
                 System.out.println("\n");
                 break;
                 
                 case 2:
                 System.out.println("\nMerge Sort");
-
-                System.out.println("\n");
-
+                ArrayList<Integer> l1 = new ArrayList(Arrays.asList(arreglos.get(i)));
+                begin = System.nanoTime();
+                ArrayList<Integer> l2 = s1.merge_sort(l1);
+                end = System.nanoTime();
+                time = end - begin;
+                System.out.println("\nTiempo de ejecución en un arreglo sin ordenar: " + time + " nanosegundos\n");
+                begin = System.nanoTime();
+                l2 = s1.merge_sort(l2);
+                end = System.nanoTime();
+                time = end - begin;
+                System.out.println("\nTiempo de ejecución en un arreglo ordenado: " + time + " nanosegundos\n");
                 System.out.println("\n");
                 System.out.println("\n");
                 break;
@@ -68,10 +87,6 @@ public class dummy {
                 System.out.println("\nQuick Sort");
 
                 tarreglo = arreglos.get(i);
-                for(int k:tarreglo)
-                {
-                    System.out.println(k);
-                }
                 begin = System.nanoTime();
                 s.quicksort(tarreglo, 0, (tarreglo.length - 1));
                 end = System.nanoTime();
@@ -82,27 +97,20 @@ public class dummy {
                 end = System.nanoTime();
                 time = end - begin;
                 System.out.println("\nTiempo de ejecución en un arreglo ordenado: " + time + " nanosegundos\n");
-
-
-                for(int k:tarreglo)
-                {
-                    System.out.println(k);
-                }
                 System.out.println("\n");
                 System.out.println("\n");
                 break;
                 
                 case 4:
                 System.out.println("\nRadix Sort");
-
+                tarreglo = arreglos.get(i);
                 begin = System.nanoTime();
-
+                int[] t2 = s.radix(tarreglo);
                 end = System.nanoTime();
                 time = end - begin;
                 System.out.println("\nTiempo de ejecución en un arreglo sin ordenar: " + time + " nanosegundos\n");
-
                 begin = System.nanoTime();
-
+                t2 = s.radix(t2);
                 end = System.nanoTime();
                 time = end - begin;
                 System.out.println("\nTiempo de ejecución en un arreglo ordenado: " + time + " nanosegundos\n");
@@ -113,19 +121,11 @@ public class dummy {
                 case 5:
                 System.out.println("\nBubble Sort");
                 tarreglo = arreglos.get(i);
-                for(int k:tarreglo)
-                {
-                    System.out.println(k);
-                }
                 begin = System.nanoTime();
                 s.bubble(tarreglo);
                 end = System.nanoTime();
                 time = end - begin;
                 System.out.println("\nTiempo de ejecución en un arreglo sin ordenar: " + time + " nanosegundos\n");
-                for(int k:tarreglo)
-                {
-                    System.out.println(k);
-                }
                 begin = System.nanoTime();
                 s.bubble(tarreglo);
                 end = System.nanoTime();

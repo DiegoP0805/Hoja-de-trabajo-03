@@ -86,5 +86,78 @@ public class sorts2 {
         }
     }
 
+
+    
+    /** 
+     * @param a
+     * @return int
+     */
+    public int max(int[] a)
+    {
+        int maximo = a[0];
+        for(int i = 0; i < (a.length); i++)
+        {
+            if(a[i] > maximo)
+            {
+                maximo = a[i];
+            }
+        }
+        return maximo;
+    }
+
+
+    
+    /** 
+     * @param a
+     * @param largo
+     * @param pot
+     */
+    public void count(int[] a, int largo, int pot) 
+    {
+        int[] r = new int[largo];//arreglo de respuesta
+        int[] x = new int[10];//coordenada de la posición de los elementos
+        for(int i = 0; i < largo; i++)
+        {
+            x[(a[i]/pot)%10] = x[(a[i]/pot)%10] + 1;
+        }
+        for(int i = 0; i < 9; i++)
+        {
+            x[i + 1] += x[i];
+        }
+        for(int i = largo - 1; i >= 0; i--)
+        {
+            int temp = (a[i]/pot) % 10;
+            r[x[temp] - 1] = a[i];
+            int temp2 = (a[i] % 10);
+            x[temp2] = x[temp2] - 1;
+        }
+        for(int i = 0; i < largo; i++)
+        {
+            a[i] = r[i];
+        }
+    }
+
+
+    
+    /** 
+     * @param a
+     * @return int[]
+     */
+    public int[] radix(int[] a)
+    {
+        int largo = a.length;
+        int mx = max(a);
+        for(int i = 1; (mx/i) > 0; i = i * 10)
+        {
+            count(a, largo, i);
+        }
+        return a;
+    }
+
+
+
+
+
+
     
 }
